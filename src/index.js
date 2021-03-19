@@ -6,6 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import Mapfunction from "./components/mapfunction";
 import HookUseState from "./components/HookUseState";
 import Forms from "./components/Forms";
+import {createStore } from 'redux';
+import allReducers from './reducer';
+import { Provider } from 'react-redux';
+const store = createStore(allReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 // let greating = 'Good Morning';
 // let color = 'green';
 // const time = new Date().getHours();
@@ -20,7 +25,10 @@ import Forms from "./components/Forms";
 ReactDOM.render([
   <Mapfunction />,
   <HookUseState />,
-  <Forms />
+  <Forms />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   ],
   // [
   // <h1>{`Hello, My Name is : ${flname}`}</h1>,
